@@ -30,12 +30,12 @@ int main(void)
 }
 
 void spi(unsigned char data){
-  for(int i = 0; i < 8; i++){
-    PORTB = ((data >> 7) << MOSI); //MSB first
-    PORTB ^= (1<<SCK); //Clock Pulse
-    PORTB ^= (1<<SCK);
-    data <<= 1; //Shift 1 bit
-  }
-  PORTB ^= (1<<LATCH); //Latch Pulse for the 595
-  PORTB ^= (1<<LATCH);
+    for(int i = 0; i < 8; i++){
+        PORTB = ((data >> 7) << MOSI); //MSB first
+        PORTB ^= (1<<SCK); //Clock Pulse
+        PORTB ^= (1<<SCK);
+        data <<= 1; //Shift 1 bit
+    }
+    PORTB ^= (1<<LATCH); //Latch Pulse for the 595
+    PORTB ^= (1<<LATCH);
 }
